@@ -44,18 +44,18 @@ __EOF__
 fi
 
 # Check that gtest is present. It is used to build unit test suite.
-if test ! -e gtest; then
-  if test -z $(which curl); then
-    echo "curl cannot be found. Please install it to build the package."
-    exit 1
-  fi
+# if test ! -e gtest; then
+#   if test -z $(which curl); then
+#     echo "curl cannot be found. Please install it to build the package."
+#     exit 1
+#   fi
 
-  echo "Google Test not present.  Fetching from the web..."
-  curl $curlopts -L -O https://github.com/google/googletest/archive/master.zip
-  unzip -q master.zip
-  rm master.zip
-  mv googletest-master gtest
-fi
+#   echo "Google Test not present.  Fetching from the web..."
+#   curl $curlopts -L -O https://github.com/google/googletest/archive/master.zip
+#   unzip -q master.zip
+#   rm master.zip
+#   mv googletest-master gtest
+# fi
 
 if test -z $(which cmake); then
   echo "CMake cannot be found. Please install it to build the package."
@@ -63,7 +63,7 @@ if test -z $(which cmake); then
 fi
 
 # Build gtest
-(cd gtest && cmake . && make)
+# (cd gtest && cmake . && make)
 
 # Build the main package
 cmake . && make
